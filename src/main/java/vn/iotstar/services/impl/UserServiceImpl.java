@@ -4,7 +4,6 @@ import vn.iotstar.models.UserModel;
 import vn.iotstar.services.IUserService;
 import vn.iotstar.dao.IUserDao;
 import vn.iotstar.dao.impl.UserDaoImpl;
-import java.text.DateFormat;
 
 public class UserServiceImpl implements IUserService {
 	IUserDao userDao = new UserDaoImpl();
@@ -41,6 +40,12 @@ public class UserServiceImpl implements IUserService {
 	public boolean checkExistUsername(String username) {
 		return userDao.checkExistUsername(username);
 	}
+	
+	@Override
+	public boolean checkExistPhone(String phone) {
+	return userDao.checkExistEmail(phone);
+	}
+
 
 	@Override
 	public void insert(UserModel user) {

@@ -66,6 +66,7 @@ public class UserDaoImpl implements IUserDao{
 
 	}
 
+	@Override
 	public boolean checkExistUsername(String username) {
 		boolean duplicate = false;
 		String query = "select * from [users] where username = ?";
@@ -84,6 +85,7 @@ public class UserDaoImpl implements IUserDao{
 		return duplicate;
 	}
 
+	@Override
 	public boolean checkExistEmail(String email) {
 		boolean duplicate = false;
 		String query = "select * from [users] where email = ?";
@@ -91,6 +93,25 @@ public class UserDaoImpl implements IUserDao{
 			conn = new DBConnectSQLServer().getConnection();
 			ps = conn.prepareStatement(query);
 			ps.setString(1, email);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				duplicate = true;
+			}
+			ps.close();
+			conn.close();
+		} catch (Exception ex) {
+		}
+		return duplicate;
+	}
+	
+	@Override
+	public boolean checkExistPhone(String phone) {
+		boolean duplicate = false;
+		String query = "select * from [users] where phone = ?";
+		try {
+			conn = new DBConnectSQLServer().getConnection();
+			ps = conn.prepareStatement(query);
+			ps.setString(1, phone);
 			rs = ps.executeQuery();
 			if (rs.next()) {
 				duplicate = true;

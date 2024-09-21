@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="jakarta.tags.core"%>
+<%@taglib prefix="fmt" uri="jakarta.tags.fmt"%>
+<%@taglib prefix="fun" uri="jakarta.tags.functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -106,7 +108,7 @@ span.psp {
 			<button type="submit">Login</button>
 
 			<span class="psp">If you do not have an account on the system,
-				please <a href="http://localhost:8080/HelloWorld/register">register.</a>
+				please <a href="http://localhost:8080/btltwebct2/register">register.</a>
 			</span>
 		</div>
 	</form>
