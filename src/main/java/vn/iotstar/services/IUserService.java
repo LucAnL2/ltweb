@@ -3,7 +3,7 @@ package vn.iotstar.services;
 import vn.iotstar.models.UserModel;
 
 public interface IUserService {
-	// login
+		// login
 		UserModel findByUserName(String username);
 		UserModel login(String username, String password);
 		
@@ -13,4 +13,9 @@ public interface IUserService {
 		boolean checkExistEmail(String email);
 		boolean checkExistUsername(String username);
 		boolean checkExistPhone(String phone);
+		
+		// forgot password
+		UserModel findByUserNameAndEmail (String username, String email); 
+		
+		
 }

@@ -51,5 +51,10 @@ public class UserServiceImpl implements IUserService {
 	public void insert(UserModel user) {
 		userDao.insert(user);
 	}
+
+	@Override
+	public UserModel findByUserNameAndEmail(String username, String email) {
+		return userDao.findByUserNameAndEmail(username, email);
+	}
 }
 

@@ -102,7 +102,7 @@ span.psp {
 			<label> <input type="checkbox" name="remember" /> Remember
 				me
 			</label> <span class="psw"> <a
-				href="http://localhost:8080/HelloWorld/forgotpass">Forgot
+				href="http://localhost:8080/btltwebct2/forgotpass">Forgot
 					password ?</a></span>
 
 			<button type="submit">Login</button>

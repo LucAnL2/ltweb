@@ -122,4 +122,34 @@ public class UserDaoImpl implements IUserDao{
 		}
 		return duplicate;
 	}
+
+	@Override
+	public UserModel findByUserNameAndEmail(String username, String email) {
+		String sql = "select * from users where username=? and email=?";
+		try {
+			Connection conn = new DBConnectSQLServer().getConnection();
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, username);
+	        ps.setString(2, email);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				UserModel user = new UserModel();
+				user.setId(rs.getInt("id"));
+				user.setUsername(rs.getString("username"));
+				user.setEmail(rs.getString("email"));
+				user.setPassword(rs.getString("password"));
+				user.setFullname(rs.getString("fullname"));
+				user.setImages(rs.getString("images"));
+				user.setPhone(rs.getString("phone"));
+				user.setRoleid(rs.getInt("roleid"));
+				user.setCreateDate(rs.getDate("createdate"));
+
+				return user;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }
